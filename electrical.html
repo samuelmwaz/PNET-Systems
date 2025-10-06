@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNET Systems Limited - Electrical Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* CSS Variables for Light/Dark Mode */
+        :root {
+            --color-body-bg: #f8f8f8;
+            --color-text: #1f2937;
+            --color-nav-bg: #ffffff;
+            --color-header-bg: #f3f4f6;
+            --color-card-bg: #ffffff;
+            --color-dark-section: #1f2937;
+            --color-scroller-bg: #f8f8f8;
+            --color-scroller-item-bg: #ffffff;
+            --color-footer-text: #e5e7eb;
+            --color-gray-600: #4b5563; /* Original text color for body paragraphs */
+            --color-primary: #2563eb; /* Blue-600 */
+        }
+
+        .dark {
+            --color-body-bg: #1f2937;
+            --color-text: #e5e7eb;
+            --color-nav-bg: #111827;
+            --color-header-bg: #374151;
+            --color-card-bg: #374151;
+            --color-dark-section: #111827;
+            --color-scroller-bg: #1f2937;
+            --color-scroller-item-bg: #374151;
+            --color-footer-text: #9ca3af;
+            --color-gray-600: #d1d5db; /* Lighter text for dark mode body */
+            --color-primary: #60a5fa; /* Blue-400 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-body-bg);
+            color: var(--color-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .section-bg {
+            background-color: var(--color-body-bg);
+            transition: background-color 0.3s;
+        }
+
+        .card-bg {
+            background-color: var(--color-card-bg);
+            transition: background-color 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .card-bg {
+            box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.05), 0 4px 6px -2px rgba(255, 255, 255, 0.02);
+        }
+
+        .dark-section {
+            background-color: var(--color-dark-section);
+            color: var(--color-footer-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .text-primary {
+            color: var(--color-primary);
+        }
+        
+        /* Custom image transition for smooth cycling */
+        .card-image-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 shadow-md" style="background-color: var(--color-nav-bg);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-extrabold text-primary">PNET</span>
+                    <span class="text-xl font-semibold ml-1">Electrical</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#hero" class="text-sm font-medium hover:text-primary transition">Home</a>
+                    <a href="#our-services" class="text-sm font-medium hover:text-primary transition">Services</a>
+                    <a href="#about-us" class="text-sm font-medium hover:text-primary transition">About</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition" aria-label="Toggle Theme">
+                        <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="section-bg pt-16 pb-24 sm:pt-24 sm:pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4">
+                <span class="block text-gray-900 dark:text-white">Robust & Reliable</span>
+                <span class="block text-primary mt-2">Electrical Engineering Solutions</span>
+            </h1>
+            <p class="mt-4 text-xl sm:text-2xl max-w-3xl mx-auto" style="color: var(--color-gray-600);">
+                Specializing in the design, supply, installation, and maintenance of critical power infrastructure, ensuring efficiency and near-zero downtime for your operations.
+            </p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#our-services" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-lg text-white bg-primary hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    View Our Services
+                </a>
+                <a href="#about-us" class="inline-flex items-center px-6 py-3 border-2 border-primary text-base font-medium rounded-lg text-primary hover:bg-primary hover:text-white transition duration-300 transform hover:scale-105">
+                    Contact Our Team
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Our Services Section -->
+    <section id="our-services" class="dark-section py-20 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-base font-semibold tracking-wide uppercase text-primary">Core Expertise</h2>
+                <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-white">Comprehensive Electrical Infrastructure</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service Card 1: Generator Sets -->
+                <div class="card-bg rounded-xl overflow-hidden p-6 text-center">
+                    <div class="mb-4">
+                        <!-- Placeholder Image (Cycling with JS) -->
+                        <img id="service-card-1-img" class="w-full h-40 object-cover rounded-lg card-image-transition" 
+                             src="https://placehold.co/300x200/F0F8FF/3b82f6?text=Generator+Sets" alt="Generator Sets" loading="lazy">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Generator Sets</h3>
+                    <p class="text-sm" style="color: var(--color-gray-600);">
+                        Design, supply, installation, and commissioning of reliable Diesel and Gas Generator Sets for seamless backup power.
+                    </p>
+                </div>
+
+                <!-- Service Card 2: HV/LV Reticulation & Protection -->
+                <div class="card-bg rounded-xl overflow-hidden p-6 text-center">
+                    <div class="mb-4">
+                        <!-- Placeholder Image (Cycling with JS) -->
+                        <img id="service-card-2-img" class="w-full h-40 object-cover rounded-lg card-image-transition" 
+                             src="https://placehold.co/300x200/F0F8FF/3b82f6?text=HV/LV+Reticulation" alt="HV and LV Reticulation Infrastructure" loading="lazy">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">HV/LV Reticulation & Protection</h3>
+                    <p class="text-sm" style="color: var(--color-gray-600);">
+                        Full-spectrum design and installation of High Voltage (HV) and Low Voltage (LV) distribution infrastructure, including switch gear and advanced protection systems.
+                    </p>
+                </div>
+
+                <!-- Service Card 3: Earthing & Lightning -->
+                <div class="card-bg rounded-xl overflow-hidden p-6 text-center">
+                    <div class="mb-4">
+                        <!-- Placeholder Image (Cycling with JS) -->
+                        <img id="service-card-3-img" class="w-full h-40 object-cover rounded-lg card-image-transition" 
+                             src="https://placehold.co/300x200/F0F8FF/3b82f6?text=Earthing+%26+Protection" alt="Earthing and Lightning Protection" loading="lazy">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Earthing & Lightning Systems</h3>
+                    <p class="text-sm" style="color: var(--color-gray-600);">
+                        Design and installation of robust earthing and lightning protection systems to safeguard sensitive equipment and personnel.
+                    </p>
+                </div>
+
+                <!-- Service Card 4: Power Factor & Backup -->
+                <div class="card-bg rounded-xl overflow-hidden p-6 text-center">
+                    <div class="mb-4">
+                        <!-- Placeholder Image (Cycling with JS) -->
+                        <img id="service-card-4-img" class="w-full h-40 object-cover rounded-lg card-image-transition" 
+                             src="https://placehold.co/300x200/F0F8FF/3b82f6?text=UPS+%26+PFC" alt="UPS and Power Factor Correction" loading="lazy">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">UPS Systems & PFC</h3>
+                    <p class="text-sm" style="color: var(--color-gray-600);">
+                        Supply and integration of UPS (Uninterruptible Power Supply) and Power Factor Correction (PFC) equipment to optimize energy usage and ensure clean power.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="section-bg py-20 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="order-2">
+                    <h2 class="text-base font-semibold tracking-wide uppercase text-primary">About Our Division</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        Electrical Engineering Excellence
+                    </p>
+                    <p class="mt-4 text-lg" style="color: var(--color-gray-600);">
+                        The Electrical Engineering division of PNET Systems Limited brings world-class expertise to Zambia's critical infrastructure. Led by a highly professional team, including **Caleb Banda, our Electrical Engineer**, we are committed to delivering safe, reliable, and efficient power solutions.
+                    </p>
+                    <p class="mt-4 text-lg" style="color: var(--color-gray-600);">
+                        Our partnership-driven approach ensures we design systems that not only meet current standards but also provide long-term cost reduction and operational stability for businesses, government, and NGOs.
+                    </p>
+                    <ul class="mt-6 space-y-3">
+                        <li class="flex items-start">
+                            <svg class="flex-shrink-0 h-6 w-6 text-primary mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="ml-3 text-base font-medium" style="color: var(--color-gray-600);">Ethical business practices and strong reputation.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="flex-shrink-0 h-6 w-6 text-primary mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="ml-3 text-base font-medium" style="color: var(--color-gray-600);">Investment in the latest power technologies.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="flex-shrink-0 h-6 w-6 text-primary mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="ml-3 text-base font-medium" style="color: var(--color-gray-600);">Focus on maximum returns on customer power investments.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 mt-10 lg:mt-0">
+                    <!-- Image placeholder for the electrical division -->
+                    <img class="w-full h-auto object-cover rounded-xl shadow-2xl" 
+                         src="https://placehold.co/600x400/2563eb/ffffff?text=Electrical+Infrastructure" 
+                         alt="Image of electrical infrastructure">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark-section py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div class="mb-4 sm:mb-0">
+                    <span class="text-xl font-extrabold text-primary">PNET</span>
+                    <span class="text-lg font-semibold ml-1 text-white">Systems Limited</span>
+                </div>
+                <div class="flex space-x-6 text-sm" style="color: var(--color-footer-text);">
+                    <a href="#hero" class="hover:text-primary transition">Home</a>
+                    <a href="#our-services" class="hover:text-primary transition">Services</a>
+                    <a href="#about-us" class="hover:text-primary transition">About</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-700">
+                <p class="text-xs" style="color: var(--color-footer-text);">
+                    &copy; 2025 PNET Systems Limited. Investing in people, bringing technology to you.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Theme Toggle Logic
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('sun-icon').classList.toggle('hidden', isDark);
+            document.getElementById('moon-icon').classList.toggle('hidden', !isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Apply theme from local storage on load
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('sun-icon').classList.remove('hidden');
+            document.getElementById('moon-icon').classList.add('hidden');
+        } else {
+            document.getElementById('sun-icon').classList.add('hidden');
+            document.getElementById('moon-icon').classList.remove('hidden');
+        }
+
+        // Dynamic Image Cycling Logic for Service Cards
+        const cardData = [
+            {
+                id: 'service-card-1-img',
+                currentIndex: 0,
+                images: [
+                    "https://placehold.co/300x200/2563eb/ffffff?text=Diesel+Gensets",
+                    "https://placehold.co/300x200/F0F8FF/3b82f6?text=Power+Generators",
+                    "https://placehold.co/300x200/2563eb/ffffff?text=Installation"
+                ]
+            },
+            {
+                id: 'service-card-2-img',
+                currentIndex: 0,
+                images: [
+                    "https://placehold.co/300x200/F0F8FF/3b82f6?text=HV+Distribution",
+                    "https://placehold.co/300x200/2563eb/ffffff?text=Switchgear+Panels",
+                    "https://placehold.co/300x200/F0F8FF/3b82f6?text=LV+Systems"
+                ]
+            },
+            {
+                id: 'service-card-3-img',
+                currentIndex: 0,
+                images: [
+                    "https://placehold.co/300x200/2563eb/ffffff?text=Lightning+Protection",
+                    "https://placehold.co/300x200/F0F8FF/3b82f6?text=Earthing+Grids",
+                    "https://placehold.co/300x200/2563eb/ffffff?text=Grounding+Design"
+                ]
+            },
+            {
+                id: 'service-card-4-img',
+                currentIndex: 0,
+                images: [
+                    "https://placehold.co/300x200/F0F8FF/3b82f6?text=Power+Factor+Correction",
+                    "https://placehold.co/300x200/2563eb/ffffff?text=UPS+Backup",
+                    "https://placehold.co/300x200/F0F8FF/3b82f6?text=Energy+Optimization"
+                ]
+            }
+        ];
+
+        function updateCardImages() {
+            cardData.forEach(card => {
+                const imgElement = document.getElementById(card.id);
+                
+                if (imgElement) {
+                    // Start fade out
+                    imgElement.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        // Update index and source after fade out
+                        card.currentIndex = (card.currentIndex + 1) % card.images.length;
+                        imgElement.src = card.images[card.currentIndex];
+                        
+                        // Start fade in
+                        imgElement.style.opacity = '1';
+                    }, 300); // Matches the transition duration
+                }
+            });
+        }
+
+        // Set interval for image cycling (e.g., every 5 seconds)
+        setInterval(updateCardImages, 5000);
+
+        // Initial update to ensure all images are loaded correctly (optional, but good practice)
+        window.onload = updateCardImages;
+
+    </script>
+</body>
+</html>

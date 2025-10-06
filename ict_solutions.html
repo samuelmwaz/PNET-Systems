@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Solutions</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font and basic body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+        }
+        /* Custom color palette for a professional, vibrant look */
+        .color-primary { background-color: #0d47a1; } /* Dark Blue */
+        .color-secondary { color: #1e88e5; } /* Medium Blue */
+        .bg-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .icon-box {
+            background-color: #e3f2fd; /* Light Blue for icon background */
+            color: #1e88e5; /* Medium Blue for icon */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d47a1', // Dark Blue
+                        secondary: '#1e88e5', // Medium Blue
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section (Updated with PNET Mission/Approach) -->
+    <header class="py-12 md:py-16 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
+                PNET <span class="text-primary">ICT SOLUTIONS</span>
+            </h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                PNET Systems is a world-class technology solutions provider. Our **partnership-driven approach** focuses on delivering professional ICT and engineering solutions to reduce costs, improve efficiency, and achieve near-zero downtime.
+            </p>
+        </div>
+    </header>
+
+    <!-- Services Grid Section (Updated with specific PNET service details) -->
+    <main class="py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service Card 1: Structured Cabling & Networking -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 bg-card-hover">
+                    <div class="icon-box w-16 h-16 flex items-center justify-center rounded-full mb-4">
+                        <!-- Icon: Network/Cable -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">Structured Cabling & Networking</h2>
+                    <p class="text-gray-600">
+                        Comprehensive design, installation, and certification of high-performance **Structured Cabling (Fiber Optic & Copper)**. We ensure seamless, high-speed, and reliable connectivity through robust wired and wireless networks.
+                    </p>
+                </div>
+
+                <!-- Service Card 2: Managed IT Services & Support -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 bg-card-hover">
+                    <div class="icon-box w-16 h-16 flex items-center justify-center rounded-full mb-4">
+                        <!-- Icon: Managed Services/Settings -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">Managed IT Services & Support</h2>
+                    <p class="text-gray-600">
+                        Proactive **Managed IT Services** including 24/7 remote monitoring, on-site technical assistance, and system maintenance. We collaborate closely with your client IT teams to ensure seamless and efficient operations.
+                    </p>
+                </div>
+
+                <!-- Service Card 3: Data Center, Virtualization & Cloud -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 bg-card-hover">
+                    <div class="icon-box w-16 h-16 flex items-center justify-center rounded-full mb-4">
+                        <!-- Icon: Cloud/Data -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">Data Center, Virtualization & Cloud</h2>
+                    <p class="text-gray-600">
+                        Specialized solutions for server infrastructure, **virtualization**, data backup and recovery, and professional migration services. We ensure your data center and cloud platforms deliver optimal performance and reliability.
+                    </p>
+                </div>
+
+                <!-- Service Card 4: IT Security & Audits -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 bg-card-hover">
+                    <div class="icon-box w-16 h-16 flex items-center justify-center rounded-full mb-4">
+                        <!-- Icon: Security -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">IT Security & Audits</h2>
+                    <p class="text-gray-600">
+                        Delivering end-to-end security services including comprehensive risk assessments, **firewall implementation**, network protection, antivirus solutions, and secure business continuity strategies.
+                    </p>
+                </div>
+
+                <!-- Service Card 5: Hardware & Software Supply -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 bg-card-hover">
+                    <div class="icon-box w-16 h-16 flex items-center justify-center rounded-full mb-4">
+                        <!-- Icon: Supply/Package -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">Hardware & Software Supply</h2>
+                    <p class="text-gray-600">
+                        Reliable **provisioning of high-quality equipment** including servers, networking gear, client PCs, and printers. We supply and manage **licensed software** from leading global technology brands.
+                    </p>
+                </div>
+
+                <!-- Service Card 6: Professional IT Consulting -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 bg-card-hover">
+                    <div class="icon-box w-16 h-16 flex items-center justify-center rounded-full mb-4">
+                        <!-- Icon: Consulting/Idea -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.817 17.817A9.954 9.954 0 0012 22a9.954 9.954 0 004.183-4.183M2.183 7.817A9.954 9.954 0 002 12a9.954 9.954 0 004.183 4.183m0-8.366A9.954 9.954 0 0012 2a9.954 9.954 0 00-4.183 4.183"></path></svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">Professional IT Consulting</h2>
+                    <p class="text-gray-600">
+                        Strategic **IT Consulting** and project management. We provide guidance for IT roadmaps, system integration, and digital transformation initiatives to ensure maximum returns on your technology investments.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Call to Action Footer -->
+    <footer class="py-12 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-semibold text-white mb-4">Ready to Transform Your IT?</h3>
+            <p class="text-gray-200 mb-6">
+                Contact our expert team to discuss a tailored solution for your business needs.
+            </p>
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-primary bg-white hover:bg-gray-100 transition duration-150">
+                Get a Quote Today
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
