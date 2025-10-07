@@ -63,7 +63,7 @@
         }
         
         .logo-img {
-            height: 60px; /* Increased height for the navbar logo */
+            height: 60px;
             width: auto;
         }
         
@@ -75,25 +75,17 @@
         }
 
         .hero-section {
-            /* ENSURES IMAGE COVERS THE ENTIRE SECTION AREA */
             background-image: url('images/11.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Optional: Parallax-like effect */
+            background-attachment: fixed;
         }
 
-        /* NEW STYLE: For the image next to the hero title */
         .hero-image-overlay {
             width: 100%;
             display: flex;
             align-items: center;
             gap: 20px;
-        }
-        .hero-image-overlay img {
-            max-width: 250px; /* Adjust size as needed */
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 640px) {
@@ -105,7 +97,24 @@
                 max-width: 100%;
             }
         }
-
+        
+        /* === CSS FOR SLIDING SECTION (SLOW TRANSITION) === */
+        .slide-down-section {
+            max-height: 0;
+            overflow: hidden;
+            /* SLOWER TRANSITION: 1.5 seconds for max-height */
+            transition: max-height 1.5s ease-in-out, padding 1.0s ease-in-out; 
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-bottom: 0; 
+        }
+        .slide-down-section.expanded {
+            max-height: 1000px; /* Large enough value to accommodate content */
+            padding-top: 2rem; 
+            padding-bottom: 2rem;
+            margin-bottom: 1.5rem; /* Add desired bottom margin when expanded */
+        }
+        /* =================================== */
 
         .scroller-container {
             overflow: hidden;
@@ -180,8 +189,11 @@
 
                 <div class="hidden md:flex space-x-8 font-semibold text-sm items-center">
                     <a href="#home" class="text-pnet-blue hover:text-pnet-blue/80 transition">HOME</a>
-                    <a href="ict_solutions.html" class="text-custom-gray-600 hover:text-pnet-blue transition">ICT SOLUTIONS</a>
-                    <a href="electrical.html" class="text-custom-gray-600 hover:text-pnet-blue transition">ELECTRICAL</a>
+                    
+                    <a href="#" id="ict-solutions-link" data-target="ict-solutions-details" aria-expanded="false" class="text-custom-gray-600 hover:text-pnet-blue transition">ICT SOLUTIONS</a>
+                    
+                    <a href="#" id="electrical-solutions-link" data-target="electrical-solutions-details" aria-expanded="false" class="text-custom-gray-600 hover:text-pnet-blue transition">ELECTRICAL</a>
+                    
                     <a href="#services" class="text-custom-gray-600 hover:text-pnet-blue transition">PAYMENTS</a>
                     <a href="#about" class="text-custom-gray-600 hover:text-pnet-blue transition">ABOUT US</a>
                     <a href="#contact" class="text-custom-gray-600 hover:text-pnet-blue transition">CONTACTS</a>
@@ -199,14 +211,68 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden pb-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
             <a href="#home" class="block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">HOME</a>
-            <a href="ict_solutions.html" class="block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">ICT SOLUTIONS</a>
-            <a href="electrical.html" class="block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">ELECTRICAL</a>
+            
+            <a href="#" data-target="ict-solutions-details" aria-expanded="false" class="ict-solutions-mobile-link block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">ICT SOLUTIONS</a>
+            
+            <a href="#" data-target="electrical-solutions-details" aria-expanded="false" class="electrical-solutions-mobile-link block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">ELECTRICAL</a>
+            
             <a href="#services" class="block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">PAYMENTS</a>
             <a href="#about" class="block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">ABOUT US</a>
             <a href="#contact" class="block px-4 py-2 text-custom-text hover:bg-gray-200 dark:hover:bg-gray-600">CONTACTS</a>
         </div>
     </nav>
-
+    
+    <section id="ict-solutions-details" class="slide-down-section bg-custom-header-bg transition-colors duration-500 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-pnet-blue mb-6 border-b-2 border-pnet-blue pb-2">Comprehensive ICT Solutions Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-custom-text">
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Managed IT Services & Networking</h3>
+                    <ul class="list-disc list-inside space-y-2 text-custom-gray-600">
+                        <li>IT Helpdesk and Remote/Onsite Support</li>
+                        <li>Advanced Voice & LAN Infrastructure Setup</li>
+                        <li>**Starlink** and Satellite Communication Installation</li>
+                        <li>Fiber and Radio Link Deployment & Maintenance</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Telecom & Security Expertise</h3>
+                    <ul class="list-disc list-inside space-y-2 text-custom-gray-600">
+                        <li>End-to-end 2G-5G Network Solutions (RF Planning, Implementation)</li>
+                        <li>Network Security, Firewall Configuration, and VPN setup</li>
+                        <li>Data Backup, Disaster Recovery (DR), and Business Continuity Planning</li>
+                        <li>Cloud Services and Server Infrastructure Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="electrical-solutions-details" class="slide-down-section bg-custom-header-bg transition-colors duration-500 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-pnet-blue mb-6 border-b-2 border-pnet-blue pb-2">Comprehensive Electrical Solutions Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-custom-text">
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Industrial & Power Solutions</h3>
+                    <ul class="list-disc list-inside space-y-2 text-custom-gray-600">
+                        <li>High Voltage (HV) Design, Testing, and Installation (up to 33kV)</li>
+                        <li>Power Electrical Support for Construction and Mining</li>
+                        <li>Power Factor Correction (PFC) Implementation</li>
+                        <li>Industrial Wiring, Controls, and Automation</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Generators & General Services</h3>
+                    <ul class="list-disc list-inside space-y-2 text-custom-gray-600">
+                        <li>Generator Supply, Installation, and Maintenance</li>
+                        <li>24-hour Residential and Commercial Electrical Support</li>
+                        <li>Fault Finding and Emergency Repairs</li>
+                        <li>Electrical Inspection and Compliance Services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="home" class="hero-section h-96 sm:h-[500px] flex items-center mb-12 shadow-xl">
         <div class="w-full h-full bg-black bg-opacity-50 flex items-center">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -342,7 +408,7 @@
                 
                 <div class="product-scroller-item">
                     <div class="bg-custom-card-bg p-4 rounded-xl shadow-lg flex flex-col items-center">
-                        <img src=" images/Screenshot 2025-10-02 205913.png" alt="ICT Hardware" class="w-full h-auto rounded-lg mb-3">
+                        <img src="images/all.jpg " alt="ICT Hardware" class="w-full h-auto rounded-lg mb-3">
                         <p class="text-lg font-semibold text-custom-gray-600">IT Hardware Sales</p>
                     </div>
                 </div>
@@ -364,7 +430,7 @@
                 
                 <div class="product-scroller-item">
                     <div class="bg-custom-card-bg p-4 rounded-xl shadow-lg flex flex-col items-center">
-                        <img src="images/cisco.jpg" alt="Cisco Products" class="w-full h-auto rounded-lg mb-3">
+                        <img src="images/ciscopr.jpg " alt="Cisco Products" class="w-full h-auto rounded-lg mb-3">
                         <p class="text-lg font-semibold text-custom-gray-600">Cisco Products</p>
                     </div>
                 </div>
@@ -380,13 +446,13 @@
                 <div class="product-scroller-item">
                     <div class="bg-custom-card-bg p-4 rounded-xl shadow-lg flex flex-col items-center">
                         <img src=" images/cable.jpg " alt="Currency Processors" class="w-full h-auto rounded-lg mb-3">
-                        <p class="text-lg font-semibold text-custom-gray-600">cat 5-6</p>
+                        <p class="text-lg font-semibold text-custom-gray-600">LAN INFRUSTRUCTURE </p>
                     </div>
                 </div>
                 
                 <div class="product-scroller-item">
                     <div class="bg-custom-card-bg p-4 rounded-xl shadow-lg flex flex-col items-center">
-                        <img src=" images/cambuim.jpg " alt="Cambium Products" class="w-full h-auto rounded-lg mb-3">
+                        <img src="images/call.png  " alt="Cambium Products" class="w-full h-auto rounded-lg mb-3">
                         <p class="text-lg font-semibold text-custom-gray-600">Cambium Products</p>
                     </div>
                 </div>
@@ -401,8 +467,8 @@
                 
                 <div class="product-scroller-item">
                     <div class="bg-custom-card-bg p-4 rounded-xl shadow-lg flex flex-col items-center">
-                        <img src="images/hardware.jpg" alt="ICT Hardware" class="w-full h-auto rounded-lg mb-3">
-                        <p class="text-lg font-semibold text-custom-gray-600">IT Hardware Sales</p>
+                        <img src="images/cctv.jpg " alt="ICT Hardware" class="w-full h-auto rounded-lg mb-3">
+                        <p class="text-lg font-semibold text-custom-gray-600">cctv</p>
                     </div>
                 </div>
 
@@ -450,8 +516,8 @@
                     <h4 class="text-xl font-bold mb-4 text-white">Site Links</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#home" class="hover:text-pnet-blue transition">Home</a></li>
-                        <li><a href="ict_solutions.html" class="hover:text-pnet-blue transition">ICT Solutions</a></li>
-                        <li><a href="electrical.html" class="hover:text-pnet-blue transition">Electrical</a></li>
+                        <li><a href="#" data-target="ict-solutions-details" class="hover:text-pnet-blue transition">ICT Solutions</a></li>
+                        <li><a href="#" data-target="electrical-solutions-details" class="hover:text-pnet-blue transition">Electrical</a></li>
                         <li><a href="#services" class="hover:text-pnet-blue transition">Payments</a></li>
                     </ul>
                 </div>
@@ -466,8 +532,9 @@
                     </address>
                 </div>
 
-                
+                <div></div>
 
+            </div>
             <div class="border-t border-gray-700 pt-6 pb-8 mt-6 text-sm flex flex-col sm:flex-row justify-between items-center text-gray-500">
                 <p>&copy; Copyright 2025. PNET Systems Limited. All Rights Reserved.</p>
                 <p class="mt-2 sm:mt-0 italic">Investing in people, bringing technology to you.</p>
@@ -482,7 +549,6 @@
         const moonIcon = document.getElementById('theme-icon-dark');
         const htmlElement = document.documentElement;
 
-        // On page load, set theme based on localStorage or system preference
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             htmlElement.classList.add('dark');
             sunIcon.classList.add('hidden');
@@ -493,7 +559,6 @@
             moonIcon.classList.add('hidden');
         }
 
-        // Toggle functionality
         themeToggle.addEventListener('click', () => {
             if (htmlElement.classList.contains('dark')) {
                 htmlElement.classList.remove('dark');
@@ -509,22 +574,94 @@
         });
 
 
-        // Existing JS for mobile menu and image cycling (updated to reflect custom classes)
         document.addEventListener('DOMContentLoaded', () => {
             const button = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
 
-            button.addEventListener('click', () => {
+            function toggleMobileMenu() {
                 menu.classList.toggle('hidden');
-            });
+            }
 
-            const mobileMenuLinks = menu.querySelectorAll('a');
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
+            button.addEventListener('click', toggleMobileMenu);
+
+            /* === JAVASCRIPT FOR MUTUAL SLIDE-DOWN EFFECT (ICT & ELECTRICAL) === */
+            
+            // ICT Elements
+            const ictSolutionsLink = document.getElementById('ict-solutions-link');
+            const ictSolutionsDetails = document.getElementById('ict-solutions-details');
+            const mobileIctSolutionsLinks = document.querySelectorAll('.ict-solutions-mobile-link');
+            
+            // Electrical Elements
+            const electricalSolutionsLink = document.getElementById('electrical-solutions-link');
+            const electricalSolutionsDetails = document.getElementById('electrical-solutions-details');
+            const mobileElectricalSolutionsLinks = document.querySelectorAll('.electrical-solutions-mobile-link');
+
+            function toggleSection(linkElement, detailElement, otherDetailElement, otherLinkElement) {
+                // 1. Close the other section first (Mutual Exclusion)
+                if (otherDetailElement.classList.contains('expanded')) {
+                    otherDetailElement.classList.remove('expanded');
+                    
+                    // Update ARIA for the other section's main link
+                    if (otherLinkElement) otherLinkElement.setAttribute('aria-expanded', 'false');
+                    
+                    // Also update all other links pointing to the closed detail element
+                    document.querySelectorAll(`[data-target="${otherDetailElement.id}"]`).forEach(link => {
+                        link.setAttribute('aria-expanded', 'false');
+                    });
+                }
+
+                // 2. Toggle the current section
+                const isExpanded = detailElement.classList.contains('expanded');
+                detailElement.classList.toggle('expanded', !isExpanded);
+                
+                // 3. Update all links pointing to the current detail element
+                document.querySelectorAll(`[data-target="${detailElement.id}"]`).forEach(link => {
+                    link.setAttribute('aria-expanded', !isExpanded);
+                });
+                
+                // 4. Scroll to view if expanding
+                if (!isExpanded) {
+                    detailElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // ICT Handlers
+            const ictLinks = [ictSolutionsLink, ...mobileIctSolutionsLinks].filter(Boolean);
+            ictLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    // Close mobile menu if clicked from mobile
+                    if (event.target.classList.contains('ict-solutions-mobile-link') && menu && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                    }
+                    
+                    // Pass the main electrical link as the 'other' link reference
+                    const otherLinkReference = electricalSolutionsLink; 
+                    
+                    toggleSection(link, ictSolutionsDetails, electricalSolutionsDetails, otherLinkReference);
                 });
             });
 
+            // ELECTRICAL Handlers
+            const electricalLinks = [electricalSolutionsLink, ...mobileElectricalSolutionsLinks].filter(Boolean);
+            electricalLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    // Close mobile menu if clicked from mobile
+                    if (event.target.classList.contains('electrical-solutions-mobile-link') && menu && !menu.classList.contains('hidden')) {
+                        menu.classList.add('hidden');
+                    }
+                    
+                    // Pass the main ICT link as the 'other' link reference
+                    const otherLinkReference = ictSolutionsLink;
+
+                    toggleSection(link, electricalSolutionsDetails, ictSolutionsDetails, otherLinkReference);
+                });
+            });
+            /* ============================================== */
+
+
+            // Original Image Cycling Logic (Retained from your file)
             const cardData = [
                 {
                     id: 'service-card-1-img',
@@ -571,7 +708,8 @@
                 });
             }
 
-            // setInterval(updateCardImages, 4000); // Commented out to reduce complexity unless required
+            // You can uncomment the line below to activate image cycling every 4 seconds
+            // setInterval(updateCardImages, 4000); 
         });
     </script>
 
